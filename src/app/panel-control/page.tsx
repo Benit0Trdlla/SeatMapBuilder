@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { SeatMap } from "@/components/seat-map"
 import { ControlPanel } from "@/components/control-panel"
 import { ExportJsonDialog } from "@/components/export-json-dialog"
+import { ImportJsonDialog } from "@/components/import-json-dialog"
 import { MapPin, Download, Upload } from "lucide-react"
 
 export interface Seat {
@@ -84,10 +85,12 @@ export default function Page() {
                     Mapa de Asientos
                   </span>
                   <div className="flex items-center justify-between gap-2">
-                    <Button variant="outline" className="hover:cursor-pointer">
-                      <Upload className="w-5 h-5" />
-                      Importar
-                    </Button>
+                    <ImportJsonDialog setRows={setRows} setSelectedRows={setSelectedRows}>
+                      <Button className="hover:cursor-pointer" variant="outline">
+                        <Upload className="w-5 h-5" />
+                        Importar desde JSON
+                      </Button>
+                    </ImportJsonDialog>
                     <ExportJsonDialog rows={rows}>
                       <Button variant="outline" className="hover:cursor-pointer">
                         <Download className="w-5 h-5" />
