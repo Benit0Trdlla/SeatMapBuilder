@@ -19,23 +19,12 @@ export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMa
       rows.map((row) =>
         row.id === rowId
           ? {
-              ...row,
-              seats: row.seats.map((seat) =>
-                seat.id === seatId
-                  ? {
-                      ...seat,
-                      status:
-                        seat.status === "available"
-                          ? "selected" 
-                          : seat.status === "selected"
-                            ? "occupied"
-                          : seat.status === "occupied"
-                            ? "available"
-                            : seat.status,
-                    }
-                  : seat,
-              ),
-            }
+            ...row,
+            seats: row.seats.map((seat) =>
+              seat.id === seatId
+                : seat,
+            ),
+          }
           : row,
       ),
     )
@@ -101,13 +90,14 @@ export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMa
             key={row.id}
             className={cn(
               "p-4 rounded-lg border transition-all duration-200",
-              isRowSelected(row.id) ? "row-selected" : "border-border bg-card",
+              isRowSelected(row.id) && "row-selected",
             )}
           >
             <div className="flex items-center gap-4">
               {/* Row selection checkbox */}
               <div className="flex items-center gap-2">
                 <Checkbox
+                  className="border-foreground-dark"
                   checked={isRowSelected(row.id)}
                   onCheckedChange={(checked) => handleRowSelection(row.id, checked as boolean)}
                 />
