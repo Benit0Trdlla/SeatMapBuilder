@@ -13,7 +13,19 @@ interface SeatMapProps {
 }
 
 export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMapProps) {
-
+  const getNewStatus = (status: string) => {
+    switch (status) {
+      case "available":
+        return "selected"
+      case "selected":
+        return "occupied"
+      case "occupied":
+        return "available"
+      default:
+        return status
+    }
+  }
+  
   const handleSeatClick = (rowId: string, seatId: string) => {
     setRows(
       rows.map((row) =>
@@ -22,6 +34,7 @@ export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMa
             ...row,
             seats: row.seats.map((seat) =>
               seat.id === seatId
+                ? { ...seat, status: getNewStatus(seat.status) as 'available' | 'selected' | 'occupied' }
                 : seat,
             ),
           }
