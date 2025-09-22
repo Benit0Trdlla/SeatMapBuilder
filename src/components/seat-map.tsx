@@ -98,7 +98,7 @@ export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMa
       )}
 
       {/* Seat map */}
-      <div className="space-y-4">
+      <div className="space-y-4 h-100 overflow-x-hidden">
         {rows.map((row) => (
           <div
             key={row.id}
