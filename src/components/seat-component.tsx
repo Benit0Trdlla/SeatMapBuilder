@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import type { Seat } from "@/app/page"
+import type { Seat } from "@/app/panel-control/page"
 
 interface SeatComponentProps {
   seat: Seat

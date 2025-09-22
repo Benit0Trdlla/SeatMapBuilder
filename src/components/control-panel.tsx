@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { RowLabelingDialog } from "@/components/row-labeling-dialog"
 import { DeleteConfirmationDialog } from "@/components/delete-confirmation-dialog"
-import type { Row } from "@/app/page"
+import type { Row } from "@/app/panel-control/page"
 import { Plus, RotateCcw, Tag, Trash2 } from "lucide-react"
 
 interface ControlPanelProps {

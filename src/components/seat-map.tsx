@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import type { Row } from "@/app/page"
+import type { Row } from "@/app/panel-control/page"
 import { cn } from "@/lib/utils"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"

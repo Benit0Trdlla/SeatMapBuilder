@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { SeatMap } from "@/components/seat-map"
 import { ControlPanel } from "@/components/control-panel"
 import { ExportJsonDialog } from "@/components/export-json-dialog"
-import { MapPin, Download } from "lucide-react"
+import { MapPin, Download, Upload } from "lucide-react"
 
 export interface Seat {
   id: string
@@ -83,12 +83,19 @@ export default function Page() {
                     <MapPin className="w-5 h-5" />
                     Mapa de Asientos
                   </span>
-                  <ExportJsonDialog rows={rows}>
+                  <div className="flex items-center justify-between gap-2">
                     <Button variant="outline" className="hover:cursor-pointer">
-                      <Download className="w-5 h-5" />
-                      Descargar
+                      <Upload className="w-5 h-5" />
+                      Importar
                     </Button>
-                  </ExportJsonDialog>
+                    <ExportJsonDialog rows={rows}>
+                      <Button variant="outline" className="hover:cursor-pointer">
+                        <Download className="w-5 h-5" />
+                        Descargar
+                      </Button>
+                    </ExportJsonDialog>
+                  </div>
+
                 </CardTitle>
               </CardHeader>
               <CardContent>

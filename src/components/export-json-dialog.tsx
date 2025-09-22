@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import type { Row } from "@/app/page"
+import type { Row } from "@/app/panel-control/page"
 import { Download } from "lucide-react"
 
 interface ExportJsonDialogProps {
