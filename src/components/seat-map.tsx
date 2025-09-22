@@ -29,8 +29,10 @@ export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMa
                       ...seat,
                       status:
                         seat.status === "available"
-                          ? "selected"
+                          ? "selected" 
                           : seat.status === "selected"
+                            ? "occupied"
+                          : seat.status === "occupied"
                             ? "available"
                             : seat.status,
                     }
@@ -129,7 +131,7 @@ export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMa
                       seat.status === "selected" && "seat-selected",
                       seat.status === "occupied" && "seat-occupied",
                     )}
-                    disabled={seat.status === "occupied"}
+                    // disabled={seat.status === "occupied"}
                     title={`Asiento ${seat.id} - ${seat.status === "available" ? "Disponible" : seat.status === "selected" ? "Seleccionado" : "Ocupado"}`}
                   >
                     {seat.number}
