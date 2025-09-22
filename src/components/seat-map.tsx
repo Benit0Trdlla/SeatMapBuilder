@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import type { Row } from "@/app/panel-control/page"
 import { cn } from "@/lib/utils"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -14,8 +13,6 @@ interface SeatMapProps {
 }
 
 export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMapProps) {
-  const [selectedSeats, setSelectedSeats] = useState<string[]>([])
-  const [multiSelectMode, setMultiSelectMode] = useState(false)
 
   const handleSeatClick = (rowId: string, seatId: string) => {
     setRows(

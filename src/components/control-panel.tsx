@@ -23,7 +23,6 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
   const [newRowLabel, setNewRowLabel] = useState("")
   const [seatsPerRow, setSeatsPerRow] = useState(5)
   const [multipleRows, setMultipleRows] = useState(1)
-  const [rowLabel, setRowLabel] = useState("")
 
   // Generate next available row label
   const getNextRowLabel = () => {
@@ -210,6 +209,17 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
               placeholder={`Desde: ${getNextRowLabel()}`}
               value={newRowLabel}
               onChange={(e) => setNewRowLabel(e.target.value.toUpperCase())}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="seats-per-row">Asientos por Fila</Label>
+            <Input
+              id="seats-per-row"
+              type="number"
+              min="1"
+              max="50"
+              value={seatsPerRow}
+              onChange={(e) => setSeatsPerRow(Number.parseInt(e.target.value) || 1)}
             />
           </div>
           <Button onClick={createMultipleRows} className="w-full">
