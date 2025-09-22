@@ -25,7 +25,7 @@ export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMa
         return status
     }
   }
-  
+
   const handleSeatClick = (rowId: string, seatId: string) => {
     setRows(
       rows.map((row) =>
@@ -97,7 +97,7 @@ export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMa
       )}
 
       {/* Seat map */}
-      <div className="space-y-4 h-100 overflow-x-hidden">
+      <div className={`${rows.length > 0 && 'space-y-4 h-100'} overflow-x-hidden`}>
         {rows.map((row) => (
           <div
             key={row.id}
@@ -160,7 +160,7 @@ export function SeatMap({ rows, setRows, selectedRows, setSelectedRows }: SeatMa
 
       {/* Empty state */}
       {rows.length === 0 && (
-        <div className="text-center py-12">
+        <div className="text-center pb-12 pt-0">
           <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl">🪑</span>
           </div>

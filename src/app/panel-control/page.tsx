@@ -1,13 +1,14 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { SeatMap } from "@/components/seat-map"
 import { ControlPanel } from "@/components/control-panel"
 import { ExportJsonDialog } from "@/components/export-json-dialog"
 import { ImportJsonDialog } from "@/components/import-json-dialog"
-import { MapPin, Download, Upload } from "lucide-react"
+import { MapPin, Download, Upload, MapPlus } from "lucide-react"
 
 export interface Seat {
   id: string
@@ -59,12 +60,23 @@ export default function Page() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-primary/10 rounded-lg">
-              <MapPin className="w-6 h-6 text-primary" />
+              <Link href={"/"}>
+                <MapPin className="w-6 h-6 text-primary" />
+              </Link>
             </div>
             <div>
               <h1 className="text-3xl font-bold text-foreground">Sistema de Gestión de Asientos</h1>
               <p className="text-muted-foreground">Administra filas y asientos</p>
             </div>
+          </div>
+          <div className="flex justify-end">
+            <Button variant={"outline"} className="hover:cursor-pointer" onClick={() => {
+              setRows([])
+            }
+            }>
+              <MapPlus className="w-5 h-5" />
+              Nuevo Mapa
+            </Button>
           </div>
         </div>
 
