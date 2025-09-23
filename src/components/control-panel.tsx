@@ -24,28 +24,29 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
   const [seatsPerRow, setSeatsPerRow] = useState(5)
   const [multipleRows, setMultipleRows] = useState(1)
 
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+  const getLabelByIndex = (index: number): string => {
+    let label = ""
+    while (index >= 0) {
+      label = alphabet[index % alphabet.length] + label
+      index = Math.floor(index / alphabet.length) - 1
+    }
+    return label
+  }
+
   // Generate next available row label
   const getNextRowLabel = () => {
     const existingLabels = rows.map((row) => row.label)
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-    for (let i = 0; i < alphabet.length; i++) {
-      if (!existingLabels.includes(alphabet[i])) {
-        return alphabet[i]
+    let index = 0
+    while (true) {
+      const label = getLabelByIndex(index)
+      if (!existingLabels.includes(label)) {
+        return label
       }
+      index++
     }
-
-    // If all single letters are used, start with AA, AB, etc.
-    for (let i = 0; i < alphabet.length; i++) {
-      for (let j = 0; j < alphabet.length; j++) {
-        const label = alphabet[i] + alphabet[j]
-        if (!existingLabels.includes(label)) {
-          return label
-        }
-      }
-    }
-
-    return `ROW${rows.length + 1}`
   }
 
   const createSingleRow = () => {
@@ -67,16 +68,18 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
 
   const createMultipleRows = () => {
     const newRows: Row[] = []
-    const startingLabel = newRowLabel || getNextRowLabel()
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    const startIndex = alphabet.indexOf(startingLabel.charAt(0))
+    const existingLabels = rows.map((row) => row.label)
+
+    // encontrar el índice de la startingLabel
+    let startIndex = 0
+    while (getLabelByIndex(startIndex) !== (newRowLabel || getNextRowLabel())) {
+      startIndex++
+    }
 
     for (let i = 0; i < multipleRows; i++) {
-      const labelIndex = (startIndex + i) % alphabet.length
-      const label = alphabet[labelIndex]
+      const label = getLabelByIndex(startIndex + i)
 
-      // Skip if label already exists
-      if (rows.some((row) => row.label === label)) continue
+      if (existingLabels.includes(label)) continue
 
       const newRow: Row = {
         id: `${Date.now()}-${i}`,
@@ -94,6 +97,7 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
     setRows([...rows, ...newRows])
     setNewRowLabel("")
   }
+
 
   const addSeatsToRow = (rowId: string, numberOfSeats: number) => {
     setRows(
@@ -240,6 +244,12 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
           <div className="flex items-center justify-between">
             <span className="text-sm text-muted-foreground">Filas seleccionadas:</span>
             <Badge variant="secondary">{selectedRows.length}</Badge>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-muted-foreground">Asientos seleccionados:</span>
+            <Badge variant="secondary">
+              {rows.reduce((acc, row) => acc + row.seats.filter((seat) => seat.status === "selected").length, 0)}
+            </Badge>
           </div>
 
           {selectedRows.length > 0 && (
