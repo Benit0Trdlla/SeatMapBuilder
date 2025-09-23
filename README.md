@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Seat Map Builder
 
-## Getting Started
+Editor visual para dibujar un mapa de asientos, con creación y edición de filas y asientos, etiquetado rápido, y opciones de exportación e importación en formato JSON.
 
-First, run the development server:
+## Tecnologías utilizadas
+
+- React
+- Next.js
+- TypeScript
+- Tailwind
+- Radix UI
+- Lucide React
+
+## Setup breve
 
 ```bash
+# Entrar en la carpeta
+cd my-app
+# Instalar dependencias
+npm install
+# o
+npm i
+# Iniciar proyecto en local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura del editor
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+El editor se organiza en los siguientes componentes principales:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Page
+    - Botón 'Nuevo Mapa': limpia la aplicación para crear un nuevo mapa.
+    - Botones 'Importar desde JSON' y 'Descargar': permiten importar un mapa existente o descargar tu mapa en formato JSON.
 
-## Learn More
+- ControlPanel: aquí estan todas las funcionalidades principales del editor. 
+    - Crear una fila individual o múltiples filas con la cantidad de asientos definida por fila.
+    - Gestionar filas: eliminar múltiples filas, editar etiquetas de fila o quitar asientos.
+    - Ver estadísticas generales: cantidad total de filas, total de asientos, asientos disponibles, seleccionados y ocupados.
 
-To learn more about Next.js, take a look at the following resources:
+- SeatMap: mapa de todas tus filas y asientos que tengas.
+    - Seleccionar todas las filas a la vez o individualmente.
+    - Cambiar el estado del asiento dando click en cada uno.
+    - Mostrar información de cada fila: etiqueta, total de asientos, disponibles, seleccionados y ocupados.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy en Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Mirá el proyecto desplegado en [este enlace](https://seat-map-builder-mu.vercel.app/).
