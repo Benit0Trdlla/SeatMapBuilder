@@ -51,28 +51,6 @@ export function RowLabelingDialog({ selectedRows, rows, setRows, children }: Row
     setIsOpen(false)
   }
 
-  const generateSequentialLabels = () => {
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    const existingLabels = rows.map((row) => row.label)
-    let startIndex = 0
-
-    // Find first available letter
-    for (let i = 0; i < alphabet.length; i++) {
-      if (!existingLabels.includes(alphabet[i])) {
-        startIndex = i
-        break
-      }
-    }
-
-    const updatedLabels: Record<string, string> = {}
-    selectedRows.forEach((rowId, index) => {
-      const labelIndex = (startIndex + index) % alphabet.length
-      updatedLabels[rowId] = alphabet[labelIndex]
-    })
-
-    setNewLabels(updatedLabels)
-  }
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -88,10 +66,6 @@ export function RowLabelingDialog({ selectedRows, rows, setRows, children }: Row
             <span className="text-sm text-muted-foreground">Filas seleccionadas:</span>
             <Badge variant="secondary">{selectedRows.length}</Badge>
           </div>
-
-          <Button onClick={generateSequentialLabels} variant="outline" className="w-full bg-transparent">
-            Generar Etiquetas Secuenciales
-          </Button>
 
           <div className="space-y-3 max-h-60 overflow-y-auto">
             {selectedRowsData.map((row) => (
