@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+* {
+  font-family: system-ui, sans-serif;
+}
+
 :root {
   /* Updated color palette for seat management system */
   --background: #ffffff;

@@ -8,7 +8,7 @@ import { SeatMap } from "@/components/seat-map"
 import { ControlPanel } from "@/components/control-panel"
 import { ExportJsonDialog } from "@/components/export-json-dialog"
 import { ImportJsonDialog } from "@/components/import-json-dialog"
-import { MapPin, Download, Upload, MapPlus } from "lucide-react"
+import { MapPin, Download, Upload, Map } from "lucide-react"
 
 export interface Seat {
   id: string
@@ -23,7 +23,7 @@ export interface Row {
   selected: boolean
 }
 
-export default function Page() {
+export default function PanelControlPage() {
   const [rows, setRows] = useState<Row[]>([
     {
       id: "1",
@@ -74,7 +74,7 @@ export default function Page() {
               setRows([])
             }
             }>
-              <MapPlus className="w-5 h-5" />
+              <Map className="w-5 h-5" />
               Nuevo Mapa
             </Button>
           </div>
