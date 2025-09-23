@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ImportJsonDialog } from "@/components/import-json-dialog";
 import Link from "next/link";
 export default function Page() {
     return (
@@ -7,8 +8,10 @@ export default function Page() {
             <p>Al Editor visual para dibujar un mapa de asientos, con creación/edición de filas y asientos,
                 etiquetado rápido, exportación e importación en JSON.</p>
             <div className="flex justify-center items-center p-6 gap-3">
-                <Link href={"/panel-control"}><Button>Crear nuevo mapa</Button></Link>
-                <Button>Importar JSON (Mapa existente)</Button>
+                <Link href={"/control-panel"}><Button>Crear nuevo mapa</Button></Link>
+                {/* <ImportJsonDialog>
+                    <Button>Importar JSON (Mapa existente)</Button>
+                </ImportJsonDialog> */}
             </div>
         </div>
     );
