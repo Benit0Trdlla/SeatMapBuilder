@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Upload, FileText, AlertCircle, CheckCircle } from "lucide-react"
-import type { Row } from "@/app/panel-control/page"
+import type { Row } from "@/app/control-panel/page"
 interface ImportJsonDialogProps {
     children: React.ReactNode
     setRows: (rows: Row[]) => void

@@ -1,6 +1,6 @@
 "use client"
 
-import type { Row } from "@/app/panel-control/page"
+import type { Row } from "@/app/control-panel/page"
 import { cn } from "@/lib/utils"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"

@@ -15,7 +15,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Badge } from "@/components/ui/badge"
-import type { Row } from "@/app/panel-control/page"
+import type { Row } from "@/app/control-panel/page"
 import { Trash2, AlertTriangle } from "lucide-react"
 
 interface DeleteConfirmationDialogProps {

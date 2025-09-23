@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { RowLabelingDialog } from "@/components/row-labeling-dialog"
 import { DeleteConfirmationDialog } from "@/components/delete-confirmation-dialog"
-import type { Row } from "@/app/panel-control/page"
+import type { Row } from "@/app/control-panel/page"
 import { Plus, RotateCcw, Tag, Trash2 } from "lucide-react"
 
 interface ControlPanelProps {
@@ -99,10 +99,10 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
   }
 
 
-  const addSeatsToRow = (rowId: string, numberOfSeats: number) => {
+  const addSeatsToRow = (numberOfSeats: number) => {
     setRows(
       rows.map((row) => {
-        if (row.id === rowId) {
+        if (selectedRows.includes(row.id)) {
           const currentMaxSeat = Math.max(...row.seats.map((seat) => seat.number), 0)
           const newSeats = Array.from({ length: numberOfSeats }, (_, index) => ({
             id: `${row.label}${currentMaxSeat + index + 1}`,
@@ -119,10 +119,10 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
     )
   }
 
-  const removeSeatsFromRow = (rowId: string, numberOfSeats: number) => {
+  const removeSeatsFromRow = (numberOfSeats: number) => {
     setRows(
       rows.map((row) => {
-        if (row.id === rowId) {
+        if (selectedRows.includes(row.id)) {
           const updatedSeats = row.seats.slice(0, -numberOfSeats)
           return {
             ...row,
@@ -266,7 +266,7 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
                   size="sm"
                   variant="outline"
                   onClick={() => {
-                    selectedRows.forEach((rowId) => addSeatsToRow(rowId, 1))
+                    selectedRows.forEach(() => addSeatsToRow(1))
                   }}
                 >
                   +1 Asiento
@@ -275,7 +275,7 @@ export function ControlPanel({ rows, setRows, selectedRows, setSelectedRows }: C
                   size="sm"
                   variant="outline"
                   onClick={() => {
-                    selectedRows.forEach((rowId) => removeSeatsFromRow(rowId, 1))
+                    selectedRows.forEach(() => removeSeatsFromRow(1))
                   }}
                 >
                   -1 Asiento

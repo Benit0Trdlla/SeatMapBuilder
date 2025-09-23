@@ -23,7 +23,7 @@ export interface Row {
   selected: boolean
 }
 
-export default function PanelControlPage() {
+export default function ControlPanelPage() {
   const [rows, setRows] = useState<Row[]>([
     {
       id: "1",

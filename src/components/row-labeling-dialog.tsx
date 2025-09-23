@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
-import type { Row } from "@/app/panel-control/page"
+import type { Row } from "@/app/control-panel/page"
 import { Tag, Check } from "lucide-react"
 
 interface RowLabelingDialogProps {
