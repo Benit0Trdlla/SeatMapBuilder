@@ -8,7 +8,7 @@ import { SeatMap } from "@/components/seat-map"
 import { ControlPanel } from "@/components/control-panel"
 import { ExportJsonDialog } from "@/components/export-json-dialog"
 import { ImportJsonDialog } from "@/components/import-json-dialog"
-import { MapPin, Download, Upload, Map } from "lucide-react"
+import { MapPin, Download, Upload, Map, ArrowLeft } from "lucide-react"
 
 export interface Seat {
   id: string
@@ -59,10 +59,13 @@ export default function ControlPanelPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
+            <Link href="/">
+              <Button variant="ghost" size="icon" className="hover:cursor-pointer">
+                <ArrowLeft className="w-5 h-5" />
+              </Button>
+            </Link>
             <div className="p-2 bg-primary/10 rounded-lg">
-              <Link href={"/"}>
-                <MapPin className="w-6 h-6 text-primary" />
-              </Link>
+              <MapPin className="w-6 h-6 text-primary" />
             </div>
             <div>
               <h1 className="text-3xl font-bold text-foreground">Sistema de Gestión de Asientos</h1>
