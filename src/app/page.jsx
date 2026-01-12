@@ -65,13 +65,6 @@ export default function LandingPage() {
             <p className="text-muted-foreground leading-relaxed">
               Ve tu mapa de asientos en tiempo real con una interfaz clara y fácil de entender
             </p>
-            <div className="mt-6">
-              <img
-                src="/interactive-seat-map-grid-visualization-with-color.jpg"
-                alt="Visualización de mapa"
-                className="w-full h-auto rounded-lg border border-border/40"
-              />
-            </div>
           </div>
 
           {/* Feature 2 */}
@@ -83,13 +76,6 @@ export default function LandingPage() {
             <p className="text-muted-foreground leading-relaxed">
               Crea filas individuales o múltiples con solo unos clics. Define la cantidad de asientos por fila
             </p>
-            <div className="mt-6">
-              <img
-                src="/user-interface-for-creating-multiple-rows-of-seats.jpg"
-                alt="Creación de filas"
-                className="w-full h-auto rounded-lg border border-border/40"
-              />
-            </div>
           </div>
 
           {/* Feature 3 */}
@@ -101,13 +87,6 @@ export default function LandingPage() {
             <p className="text-muted-foreground leading-relaxed">
               Selecciona múltiples filas y asígnalas etiquetas personalizadas para organizar tu espacio
             </p>
-            <div className="mt-6">
-              <img
-                src="/seat-rows-with-custom-labels-like-vip--general--ba.jpg"
-                alt="Etiquetado de filas"
-                className="w-full h-auto rounded-lg border border-border/40"
-              />
-            </div>
           </div>
 
           {/* Feature 4 */}
@@ -119,13 +98,6 @@ export default function LandingPage() {
             <p className="text-muted-foreground leading-relaxed">
               Guarda tu configuración completa en formato JSON para respaldo o integración con otros sistemas
             </p>
-            <div className="mt-6">
-              <img
-                src="/json-export-dialog-with-file-download-icon-and-cod.jpg"
-                alt="Exportar JSON"
-                className="w-full h-auto rounded-lg border border-border/40"
-              />
-            </div>
           </div>
 
           {/* Feature 5 */}
@@ -137,13 +109,6 @@ export default function LandingPage() {
             <p className="text-muted-foreground leading-relaxed">
               Carga configuraciones previas desde archivos JSON con validación automática del esquema
             </p>
-            <div className="mt-6">
-              <img
-                src="/file-upload-interface-with-drag-and-drop-area-for-.jpg"
-                alt="Importar JSON"
-                className="w-full h-auto rounded-lg border border-border/40"
-              />
-            </div>
           </div>
 
           {/* Feature 6 */}
@@ -155,13 +120,6 @@ export default function LandingPage() {
             <p className="text-muted-foreground leading-relaxed">
               Elimina filas con confirmación para evitar errores. Selección múltiple para operaciones en lote
             </p>
-            <div className="mt-6">
-              <img
-                src="/confirmation-dialog-for-deleting-selected-rows-wit.jpg"
-                alt="Gestión segura"
-                className="w-full h-auto rounded-lg border border-border/40"
-              />
-            </div>
           </div>
         </div>
       </section>
